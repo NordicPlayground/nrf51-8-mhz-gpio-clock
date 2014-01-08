@@ -6,10 +6,9 @@ This project sets up an 8 MHz clock on a regular GPIO (by default LED_0), using 
 Requirements
 ------------
 - nRF51 SDK version 5.1.0
-- S110 SoftDevice version 6.0.0
-- nRF51822 Evaluation Kit version 2.0.0
+- nRF51822 Development Kit 
 
-The project may need modifications to work with later versions or other boards. 
+The project may need modifications to work with later versions or other boards. For instance, if you have an Evaluation Kit, you can make it work by changing the BOARD define in the project settings. 
 
 To compile it, clone the repository in the nrf51822/Board/pca10001/s110/ folder.
 
