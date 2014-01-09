@@ -18,7 +18,7 @@
  */
 int main(void)
 {
-    nrf_gpio_cfg_output(LED_0);
+    nrf_gpio_range_cfg_output(LED_0, LED_1);
     nrf_gpio_pin_set(LED_0);
     
     NRF_CLOCK->TASKS_HFCLKSTART = 1;
@@ -32,7 +32,7 @@ int main(void)
     
     NRF_GPIOTE->CONFIG[0] = GPIOTE_CONFIG_MODE_Task << GPIOTE_CONFIG_MODE_Pos |
                             GPIOTE_CONFIG_POLARITY_Toggle << GPIOTE_CONFIG_POLARITY_Pos |
-                            9 << GPIOTE_CONFIG_PSEL_Pos | 
+                            LED_1 << GPIOTE_CONFIG_PSEL_Pos | 
                             GPIOTE_CONFIG_OUTINIT_Low << GPIOTE_CONFIG_OUTINIT_Pos;
                             
     NRF_TIMER1->PRESCALER = 0;

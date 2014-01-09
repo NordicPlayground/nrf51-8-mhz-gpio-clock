@@ -1,7 +1,7 @@
 nrf51-8-mhz-gpio-clock
 ==================
 
-This project sets up an 8 MHz clock on a regular GPIO (by default LED_0), using a 16 MHz timer, GPIOTE and the PPI. 
+This project sets up an 8 MHz clock on a regular GPIO (by default LED_1), using a 16 MHz timer, GPIOTE and the PPI. 
 
 Requirements
 ------------
