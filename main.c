@@ -27,7 +27,7 @@ int main(void)
     }
     NRF_CLOCK->EVENTS_HFCLKSTARTED = 0;
     
-    // Workaround for PAN item 11, nRF51822-PAN v2.0.pdf. 
+    // Workaround for PAN item 11, nRF51822-PAN v2.0.pdf. Not needed on second revision chips. 
     NRF_POWER->TASKS_CONSTLAT = 1;
     
     NRF_GPIOTE->CONFIG[0] = GPIOTE_CONFIG_MODE_Task << GPIOTE_CONFIG_MODE_Pos |
@@ -36,6 +36,8 @@ int main(void)
                             GPIOTE_CONFIG_OUTINIT_Low << GPIOTE_CONFIG_OUTINIT_Pos;
                             
     NRF_TIMER1->PRESCALER = 0;
+    // Adjust the output frequency by adjusting the CC. 
+    // Due to PAN item 33, you can't have this at 1 for first revision chips, and will hence be limited to 4 MHz. 
     NRF_TIMER1->CC[0] = 1;
     NRF_TIMER1->SHORTS = TIMER_SHORTS_COMPARE0_CLEAR_Enabled << TIMER_SHORTS_COMPARE0_CLEAR_Pos;
     NRF_TIMER1->TASKS_START = 1;
